@@ -1,12 +1,18 @@
+import { useState } from "react";
 import { Link, Outlet } from "react-router";
+import CartImage from "./Components/CartImage";
 
 function App() {
+  const [cart, setCart] = useState([]);
+
   return (
     <>
       <nav>
         <Link to="/">HOME</Link>
         <Link to="shop">SHOP</Link>
-        <Link to="cart">CART</Link>
+        <Link to="cart">
+          <CartImage amt={cart.length} />
+        </Link>
       </nav>
       <Outlet />
     </>
