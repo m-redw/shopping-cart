@@ -14,7 +14,7 @@ function App() {
           <CartImage amt={cart.length} />
         </Link>
       </nav>
-      <Outlet />
+      <Outlet context={[cart, setCart]} />
     </>
   );
 }
