@@ -1,0 +1,44 @@
+:root {
+  --nav-bg-color: #24425e;
+  --link-color: white;
+  --hover-color: #cecece;
+  --cart-hover-color: #9e9e9e;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+nav {
+  background-color: var(--nav-bg-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+a:hover {
+  color: var(--hover-color);
+}
+
+/* svg = cart */
+svg {
+  fill: var(--hover-color);
+}
+
+a:hover svg {
+  fill: var(--cart-hover-color);
+}

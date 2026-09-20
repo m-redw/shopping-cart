@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, Outlet } from "react-router";
 import CartImage from "./Components/CartImage";
+import "./Styles/app-basics.css";
 
 function App() {
   const [cart, setCart] = useState(new Map());
