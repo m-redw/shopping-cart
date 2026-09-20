@@ -11,7 +11,7 @@ function App() {
         <Link to="/">HOME</Link>
         <Link to="shop">SHOP</Link>
         <Link to="cart">
-          <CartImage amt={cart.length} />
+          <CartImage amt={cart.size} />
         </Link>
       </nav>
       <Outlet context={[cart, setCart]} />
