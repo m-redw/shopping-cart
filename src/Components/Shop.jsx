@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Product from "./Product";
 import { useOutletContext } from "react-router";
+import styles from "../Styles/Shop.module.css";
 
 const Shop = () => {
   const [cart, setCart] = useOutletContext();
@@ -71,26 +72,32 @@ const Shop = () => {
     }
   };
 
-  if (error) return <p>A network error was encountered</p>;
+  if (error)
+    return <p className={styles.header}>A network error was encountered</p>;
 
   return (
-    <>
-      <form>
+    <div className={styles.shop}>
+      <form className={styles.searchArea}>
         <input
+          className={styles.searchBar}
           type="text"
           onChange={handleSearch}
           onSubmit={search}
           value={searchInput}
         />
-        <button onClick={search}>Search</button>
+        <button className={styles.searchButton} onClick={search}>
+          Search
+        </button>
       </form>
 
       {/* If loading, show "loading", else, show products */}
       {loading ? (
-        <p>Loading...</p>
+        <p className={styles.header}>Loading...</p>
       ) : (
-        <>
-          {finalSearch.length === 0 && <h1>Popular Items</h1>}
+        <div className={styles.productsList}>
+          {finalSearch.length === 0 && (
+            <h1 className={styles.popularHeader}>Popular Items</h1>
+          )}
           {products.length > 0 ? (
             products.map((p) => (
               <Product productObj={p} onSubmit={addToCart} key={p.id} />
@@ -98,9 +105,9 @@ const Shop = () => {
           ) : (
             <p>Nothing in stock...</p>
           )}
-        </>
+        </div>
       )}
-    </>
+    </div>
   );
 };
 
