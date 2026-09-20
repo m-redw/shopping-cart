@@ -5,14 +5,22 @@ const Product = ({ productObj, onSubmit }) => {
   const [amt, setAmt] = useState(1);
 
   const decrementAmt = () => {
-    setAmt(Number(amt) - 1);
+    let newAmt = amt - 1;
+    if (newAmt < 1) newAmt = 1;
+    setAmt(newAmt);
   };
 
   const incrementAmt = () => {
-    setAmt(Number(amt) + 1);
+    let newAmt = amt + 1;
+    if (newAmt < 1) newAmt = 1;
+    setAmt(newAmt);
   };
 
-  const changeAmt = (e) => setAmt(e.target.value);
+  const changeAmt = (e) => {
+    let newAmt = Number(e.target.value);
+    if (newAmt < 1) newAmt = 1;
+    setAmt(newAmt);
+  };
 
   const addToCart = () => {
     onSubmit({ product: productObj, amount: amt });
@@ -30,7 +38,11 @@ const Product = ({ productObj, onSubmit }) => {
           <button onClick={addToCart} className={styles.addToCart}>
             Add to Cart
           </button>
-          <button className={styles.inputButtons} onClick={decrementAmt}>
+          <button
+            className={styles.inputButtons}
+            disabled={amt <= 1}
+            onClick={decrementAmt}
+          >
             -
           </button>
           <input
