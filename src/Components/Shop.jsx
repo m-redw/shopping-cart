@@ -7,11 +7,18 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  console.log(cart);
+  const [searchInput, setSearchInput] = useState("");
+  // finalSearch variable created becuz I don't wanna update page
+  // every input. Only when the user submits the search will
+  // the page update.
+  const [finalSearch, setFinalSearch] = useState("");
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products?limit=10")
+    let url = "https://dummyjson.com/products?limit=10";
+    if (finalSearch.length > 0) {
+      url = `https://dummyjson.com/products/search?q=${finalSearch}&limit=10`;
+    }
+    fetch(url)
       .then((res) => res.json())
       .then((res) => {
         // response is {} with array of products inside {}.products
@@ -29,7 +36,7 @@ const Shop = () => {
       })
       .catch((err) => setError(err))
       .finally(() => setLoading(false));
-  }, []); // dependency array based on search bar
+  }, [finalSearch]);
 
   const addToCart = (productAndAmt) => {
     // map value looks like:
@@ -51,17 +58,47 @@ const Shop = () => {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
+  const handleSearch = (e) => setSearchInput(e.target.value);
+  const search = (e) => {
+    e.preventDefault();
+    // useEffect won't trigger if finalSearch is same,
+    // meaning loading will stay true until user searches
+    // for something actually different
+    if (finalSearch !== searchInput) {
+      setLoading(true);
+      setFinalSearch(searchInput);
+    }
+  };
+
   if (error) return <p>A network error was encountered</p>;
 
   return (
     <>
-      <input type="text" />
+      <form>
+        <input
+          type="text"
+          onChange={handleSearch}
+          onSubmit={search}
+          value={searchInput}
+        />
+        <button onClick={search}>Search</button>
+      </form>
 
-      <h1>Popular Items</h1>
-      {products.map((p) => (
-        <Product productObj={p} onSubmit={addToCart} key={p.id} />
-      ))}
+      {/* If loading, show "loading", else, show products */}
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          {finalSearch.length === 0 && <h1>Popular Items</h1>}
+          {products.length > 0 ? (
+            products.map((p) => (
+              <Product productObj={p} onSubmit={addToCart} key={p.id} />
+            ))
+          ) : (
+            <p>Nothing in stock...</p>
+          )}
+        </>
+      )}
     </>
   );
 };
