@@ -6,11 +6,11 @@ const CartImage = ({ size = 32, amt = 0 }) => {
       <text
         x="12"
         y="4"
-        font-family="sans-serif"
-        font-size="12"
-        font-weight="bold"
+        fontFamily="sans-serif"
+        fontSize="12"
+        fontWeight="bold"
         fill="currentColor"
-        text-anchor="middle"
+        textAnchor="middle"
       >
         {amt}
       </text>
