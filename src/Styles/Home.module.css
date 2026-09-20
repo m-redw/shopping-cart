@@ -1,0 +1,40 @@
+h1,
+h2,
+p {
+  font-family: sans-serif;
+}
+
+.home {
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 50px;
+}
+
+/* just a placeholder div rn */
+.img {
+  background-color: #a1a6cf;
+  width: 500px;
+  height: 300px;
+  margin: 70px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.home a {
+  color: #4f4dc4;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.home a:visited {
+  color: #281a5c;
+}
+
+.welcomeSection {
+  margin: 40px 0 100px;
+}
