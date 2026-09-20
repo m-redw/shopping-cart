@@ -8,7 +8,11 @@ const Home = () => {
         <p>Click on Shop to starting shopping!</p>
         <p>Add products to your cart and once you're ready...</p>
         <p>You can look in cart... That's about it LOL.</p>
-        <div className={styles.img}>insert img :p</div>
+        <img
+          className={styles.img}
+          src="/thumbs-up.png"
+          alt="Cutie patootie doing a thumbs up."
+        />
       </div>
 
       <div className={styles.creditsSection}>
@@ -23,6 +27,7 @@ const Home = () => {
             Pictogrammers
           </a>
         </p>
+        <p>Drawing right above: Edwin Lee</p>
       </div>
     </div>
   );
