@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router";
 import CartImage from "./Components/CartImage";
 
 function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(new Map());
 
   return (
     <>
