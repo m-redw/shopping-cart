@@ -6,6 +6,10 @@
 
 .productsList {
   position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header {
@@ -15,8 +19,10 @@
 
 .subtotal {
   font-family: sans-serif;
-  position: absolute;
-  right: 10px;
+  text-align: right;
+
+  width: 100%;
+  max-width: 800px;
 
   font-size: 24px;
 }
