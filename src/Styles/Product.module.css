@@ -1,0 +1,43 @@
+.rect {
+  max-width: 1200px;
+  min-height: 300px;
+  padding: 5px;
+  display: flex;
+  box-shadow: 0 0 2px gray;
+
+  font-family: sans-serif;
+}
+
+.img {
+  align-self: center;
+}
+
+.rating {
+  color: #d39e0e;
+}
+
+.price {
+  font-size: 24px;
+}
+
+.addToCart {
+  width: 150px;
+  height: 30px;
+  background-color: #ffc400;
+  border: none;
+  border-radius: 25px;
+  margin: 0 40px 0 0;
+}
+
+.addToCart:hover {
+  background-color: #e99f00;
+}
+
+.input {
+  width: 55px;
+}
+
+.inputButtons {
+  width: 25px;
+  font-weight: bold;
+}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "../Styles/Product.module.css";
 
 const Product = ({ productObj, onSubmit }) => {
   const [amt, setAmt] = useState(1);
@@ -18,17 +19,30 @@ const Product = ({ productObj, onSubmit }) => {
   };
 
   return (
-    <div>
-      <img src={productObj.thumbnail} />
-      <h4>{productObj.title}</h4>
-      <p>{productObj.description}</p>
-      <h4>{productObj.rating} / 5</h4>
-      <h3>{productObj.price}</h3>
-      <button onClick={addToCart}>Add to Cart</button>
-      <div className="amt-input">
-        <button onClick={decrementAmt}>-</button>
-        <input type="number" onChange={changeAmt} value={amt} />
-        <button onClick={incrementAmt}>+</button>
+    <div className={styles.rect}>
+      <img className={styles.img} src={productObj.thumbnail} />
+      <div>
+        <h4>{productObj.title}</h4>
+        <p>{productObj.description}</p>
+        <h4 className={styles.rating}>{productObj.rating} / 5</h4>
+        <h3 className={styles.price}>${productObj.price}</h3>
+        <div>
+          <button onClick={addToCart} className={styles.addToCart}>
+            Add to Cart
+          </button>
+          <button className={styles.inputButtons} onClick={decrementAmt}>
+            -
+          </button>
+          <input
+            className={styles.input}
+            type="number"
+            onChange={changeAmt}
+            value={amt}
+          />
+          <button className={styles.inputButtons} onClick={incrementAmt}>
+            +
+          </button>
+        </div>
       </div>
     </div>
   );
