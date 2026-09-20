@@ -30,6 +30,7 @@ const Shop = () => {
             title: p.title,
             description: p.description,
             rating: p.rating,
+            price: p.price,
             thumbnail: p.thumbnail,
           })),
         );
