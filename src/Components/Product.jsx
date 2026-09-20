@@ -5,11 +5,11 @@ const Product = ({ productObj, onSubmit }) => {
   const [amt, setAmt] = useState(1);
 
   const decrementAmt = () => {
-    setAmt(amt - 1);
+    setAmt(Number(amt) - 1);
   };
 
   const incrementAmt = () => {
-    setAmt(amt + 1);
+    setAmt(Number(amt) + 1);
   };
 
   const changeAmt = (e) => setAmt(e.target.value);
