@@ -1,4 +1,5 @@
 import { useOutletContext } from "react-router";
+import styles from "../Styles/CartProduct.module.css";
 
 const CartProduct = ({ productObj, amount }) => {
   const [cart, setCart] = useOutletContext();
@@ -52,18 +53,38 @@ const CartProduct = ({ productObj, amount }) => {
   };
 
   return (
-    <div>
-      <img src={productObj.thumbnail} />
-      <h3>{productObj.title}</h3>
-      <div className="amt-input">
-        <button onClick={decrementAmt} disabled={amount - 1 <= 0}>
-          -
-        </button>
-        <input type="number" onChange={changeAmt} value={amount} min={1} />
-        <button onClick={incrementAmt}>+</button>
+    <div className={styles.rect}>
+      <img className={styles.img} src={productObj.thumbnail} />
+      <div className={styles.productDetails}>
+        <h3 className={styles.productTitle}>{productObj.title}</h3>
+        <div>
+          <button
+            className={styles.amtButtons}
+            onClick={decrementAmt}
+            disabled={amount - 1 <= 0}
+          >
+            -
+          </button>
+          <input
+            className={styles.amtInput}
+            type="number"
+            onChange={changeAmt}
+            value={amount}
+            min={1}
+          />
+          <button className={styles.amtButtons} onClick={incrementAmt}>
+            +
+          </button>
+
+          <button
+            className={styles.removeButton}
+            onClick={() => removeProduct(productObj.id)}
+          >
+            Remove
+          </button>
+        </div>
+        <h4 className={styles.price}>{productObj.price}</h4>
       </div>
-      <button onClick={() => removeProduct(productObj.id)}>Remove</button>
-      <h4>{productObj.price}</h4>
     </div>
   );
 };
