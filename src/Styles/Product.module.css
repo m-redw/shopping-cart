@@ -33,6 +33,10 @@
   background-color: #e99f00;
 }
 
+.addToCart:active {
+  background-color: #d35f00;
+}
+
 .input {
   width: 55px;
 }
