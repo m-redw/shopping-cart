@@ -32,7 +32,7 @@ const Product = ({ productObj, onSubmit }) => {
       <div>
         <h4>{productObj.title}</h4>
         <p>{productObj.description}</p>
-        <h4 className={styles.rating}>{productObj.rating} / 5</h4>
+        <h4 className={styles.rating}>Rating: {productObj.rating} / 5</h4>
         <h3 className={styles.price}>${productObj.price}</h3>
         <div>
           <button onClick={addToCart} className={styles.addToCart}>
