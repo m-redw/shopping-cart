@@ -15,7 +15,9 @@ function App() {
           <CartImage amt={cart.size} />
         </Link>
       </nav>
-      <Outlet context={[cart, setCart]} />
+      <div className="content">
+        <Outlet context={[cart, setCart]} />
+      </div>
     </>
   );
 }
