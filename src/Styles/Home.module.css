@@ -4,9 +4,17 @@ p {
   font-family: sans-serif;
 }
 
+.text {
+  font-size: 24px;
+}
+
 .home {
   padding: 20px;
+  height: calc(100vh - 53px);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 h1 {
@@ -36,5 +44,5 @@ h1 {
 }
 
 .welcomeSection {
-  margin: 40px 0 100px;
+  margin: 40px 0;
 }

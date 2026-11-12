@@ -5,10 +5,14 @@ const Home = () => {
     <div className={styles.home}>
       <div className={styles.welcomeSection}>
         <h1>Welcome to Cant-Shop-Here-azon!</h1>
-        <p>Click on Shop to starting shopping!</p>
-        <p>Add products to your cart and once you're ready...</p>
-        <p>You can look in cart... That's about it LOL.</p>
-        <div className={styles.img}>insert img :p</div>
+        <p className={styles.text}>Click on Shop to starting shopping!</p>
+        <p className={styles.text}>
+          Add products to your cart and once you're ready...
+        </p>
+        <p className={styles.text}>
+          You can look in cart and see the total cost.
+        </p>
+        {/* <div className={styles.img}>insert img :p</div> */}
       </div>
 
       <div className={styles.creditsSection}>
