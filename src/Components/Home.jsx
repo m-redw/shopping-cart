@@ -15,7 +15,7 @@ const Home = () => {
         <h2>Credits</h2>
         <p>Site made by Edwin Lee</p>
         <p>
-          Fake products API: <a href="https://dummyjson.com/">DummgJSON</a>
+          Fake products API: <a href="https://dummyjson.com/">DummyJSON</a>
         </p>
         <p>
           Cart SVG:{" "}
